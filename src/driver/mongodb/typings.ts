@@ -2629,7 +2629,7 @@ export interface Collection<T> {
      * @param callback Optional
      * @see http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#aggregate
      */
-    aggregate<T>(pipeline: Object[], options?: CollectionAggregationOptions, callback?: MongoCallback<any>): AggregationCursor<T>;
+    aggregate<T>(pipeline: Object[], options?: CollectionAggregationOptions, callback?: MongoCallback<any>): AggregationCursor<T> ;
 
     /**
      * BulkWrite.
@@ -4896,6 +4896,7 @@ export type CursorResult = any | void | boolean;
  * @see http://mongodb.github.io/node-mongodb-native/2.1/api/Cursor.html
  */
 export declare class Cursor<T> extends Readable {
+    [Symbol.asyncIterator](): AsyncIterableIterator<T>;
 
     /**
      * Cursor query sort setting.
